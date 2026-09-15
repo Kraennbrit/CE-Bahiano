@@ -13,8 +13,8 @@ void exibir_menu(void) {
 void listar_produtos(Produto lista[], int total) {
     printf("\n--- Produtos Cadastrados ---\n");
     for (int i = 0; i < total; i++) {
-        // BUG: esqueceram de imprimir o ID e a quebra de linha está inadequada
-        printf("Nome: %s | Preco: R$ %.2f | Qtd: %d", lista[i].nome, lista[i].preco, lista[i].quantidade);
+
+        printf("ID: %d | Código de Barras: %s | Nome: %s | Preco: R$ %.2f | Qtd: %d\n", lista[i].id, lista[i].codigo_barras, lista[i].nome, lista[i].preco, lista[i].quantidade);
     }
 }
 
@@ -30,6 +30,9 @@ float calcular_total(Produto lista[], int total) {
 int main(void) {
     Produto estoque[MAX_ITENS];
     int total_produtos = 2;
+
+    estoque[0].codigo_barras = "7890001";
+    estoque[1].codigo_barras = "7890002";
 
     estoque[0].id = 1;
     strcpy(estoque[0].nome, "Caderno");
