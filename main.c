@@ -13,8 +13,13 @@ void exibir_menu(void) {
 void listar_produtos(Produto lista[], int total) {
     printf("\n--- Produtos Cadastrados ---\n");
     for (int i = 0; i < total; i++) {
-
-        printf("ID: %d | Código de Barras: %s | Nome: %s | Preco: R$ %.2f | Qtd: %d\n", lista[i].id, lista[i].codigo_barras, lista[i].nome, lista[i].preco, lista[i].quantidade);
+        printf("ID: %d | Codigo de Barras: %s | Categoria: %s | Nome: %s | Preco: R$ %.2f | Qtd: %d\n",
+               lista[i].id,
+               lista[i].codigo_barras,
+               lista[i].categoria,
+               lista[i].nome,
+               lista[i].preco,
+               lista[i].quantidade);
     }
 }
 
@@ -31,15 +36,16 @@ int main(void) {
     Produto estoque[MAX_ITENS];
     int total_produtos = 2;
 
-    estoque[0].codigo_barras = "7890001";
-    estoque[1].codigo_barras = "7890002";
-
     estoque[0].id = 1;
+    strcpy(estoque[0].codigo_barras, "7890001");
+    strcpy(estoque[0].categoria, "Papelaria");
     strcpy(estoque[0].nome, "Caderno");
     estoque[0].preco = 15.50;
     estoque[0].quantidade = 10;
 
     estoque[1].id = 2;
+    strcpy(estoque[1].codigo_barras, "7890002");
+    strcpy(estoque[1].categoria, "Escritorio");
     strcpy(estoque[1].nome, "Caneta");
     estoque[1].preco = 3.00;
     estoque[1].quantidade = 50;
